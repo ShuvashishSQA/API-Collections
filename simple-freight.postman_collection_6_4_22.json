@@ -1,0 +1,3159 @@
+{
+	"info": {
+		"_postman_id": "4dfe906f-e6dd-47fa-a86e-4f937da694e3",
+		"name": "simple-freight",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credential",
+			"item": [
+				{
+					"name": "Get Credentials",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/credentials/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-credential",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\":\"Super Test\",\r\n    \"label\":\"Label123\",\r\n    \"webAddress\":\"http://www.testaAddress.com\",\r\n    \"userName\":\"rokibhl\",\r\n    \"password\":\"test\",\r\n    \"division\":\"testDivision\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/credentials/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credential by page Number",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/credentials?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Credential by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/credentials/a6abf87e-b394-471f-aa26-23c13519d918",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials",
+								"a6abf87e-b394-471f-aa26-23c13519d918"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Credential by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\":\"testCategory\",\r\n    \"label\":\"testLabel\",\r\n    \"webAddress\":\"http://testaAddress.test\",\r\n    \"passWord\":\"testssse\",\r\n    \"division\":\"test_Division\",\r\n    \"userName\":\"abcde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/credentials/42775322-b295-4c27-9235-308f634ef43c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials",
+								"42775322-b295-4c27-9235-308f634ef43c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credentials by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/credentials/42775322-b295-4c27-9235-308f634ef43c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"credentials",
+								"42775322-b295-4c27-9235-308f634ef43c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff User",
+			"item": [
+				{
+					"name": "ForgetPassword",
+					"item": [
+						{
+							"name": "sendEmailWithToken",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/staff/forgotPassword/email/zawad.sharif93@gmail.com",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"staff",
+										"forgotPassword",
+										"email",
+										"zawad.sharif93@gmail.com"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "emailDoesn'tEsists",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/email/wrongEmail@gmail.com",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"email",
+												"wrongEmail@gmail.com"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "66"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"42-DpnJxn1PmBdX8bNkDXjrgCImHTM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 10:25:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"status\": \"error\",\n    \"error\": \"Email doesn't exists\"\n}"
+								},
+								{
+									"name": "emailSent",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/email/adminx@gmail.com",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"email",
+												"adminx@gmail.com"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-1BkFKGje6zUSoK4kmY3YeHWpFXk\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 10:24:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"status\": \"Success\",\n    \"message\": \"Mail sent\"\n}"
+								},
+								{
+									"name": "emailNotSent",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/email/adminx@gmail.com",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"email",
+												"adminx@gmail.com"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "68"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"44-7K4zmMN0LLEfH+FkDL0HyE9CLHU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 10:26:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 500,\n    \"status\": \"error\",\n    \"message\": \"Could not send email\"\n}"
+								},
+								{
+									"name": "sendEmailWithToken",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/email/test@test.com",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"email",
+												"test@test.com"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "137"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"89-Rtr7+Ea8LBUcubu1VQWHmvoucu0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 18:30:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date"
+										}
+									],
+									"body": "\"To reset your password, please click the link http://localhost:5000/api/staff/forgotPassword/token/8fabf803-b460-4e8e-b049-a679f30daf50\""
+								}
+							]
+						},
+						{
+							"name": "setNewPassword",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"sakibfnn\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/staff/forgotPassword/token/b26311e1-5ab8-42c5-80c9-defc02d32cff",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"staff",
+										"forgotPassword",
+										"token",
+										"b26311e1-5ab8-42c5-80c9-defc02d32cff"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "passwordChangeSucess",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"password\": \"adminpass2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/token/8fabf803-b460-4e8e-b049-a679f30daf50",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"token",
+												"8fabf803-b460-4e8e-b049-a679f30daf50"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "79"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4f-hn9FHxHszwoxCo1Qb9zYvpOlyMk\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 18:35:32 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date"
+										}
+									],
+									"body": "{\n    \"statusCode\": 200,\n    \"status\": \"success\",\n    \"message\": \"Password changed successfully\"\n}"
+								},
+								{
+									"name": "invalidToken",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"password\": \"adminpass\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/token/361ff215-1aa6-4dd6-8444-aa7b425d3a56",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"token",
+												"361ff215-1aa6-4dd6-8444-aa7b425d3a56"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-tW/N+8PXnqGSsRRSFmbqWVphU+4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 17:07:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date"
+										}
+									],
+									"body": "{\n    \"statusCode\": 400,\n    \"status\": \"error\",\n    \"error\": \"Invalid token\"\n}"
+								},
+								{
+									"name": "setNewPassword",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"password\": \"adminpass2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/staff/forgotPassword/token/8fabf803-b460-4e8e-b049-a679f30daf50",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"staff",
+												"forgotPassword",
+												"token",
+												"8fabf803-b460-4e8e-b049-a679f30daf50"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-tW/N+8PXnqGSsRRSFmbqWVphU+4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Mar 2022 18:34:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date"
+										}
+									],
+									"body": "{\n    \"statusCode\": 400,\n    \"status\": \"error\",\n    \"error\": \"Invalid token\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users staff registration",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Normal\",\r\n    \"lastName\": \"Admin\",\r\n    \"email\": \"nadmin@site.com\",\r\n    \"password\": \"123123123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/staff/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users staff login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    pm.environment.set('authToken', pm.response.json().token)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@simplefreightsolutions.com\",\r\n    \"password\": \"adminPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/staff/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/staff/users/token/{{authToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users",
+								"token",
+								"{{authToken}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user staffs(all)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/staff/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user staffs by page",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/staff/users?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/staff/users/063301ff-6215-4f7f-9bc7-e7b8fa214327",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"staff",
+								"users",
+								"063301ff-6215-4f7f-9bc7-e7b8fa214327"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update staff users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "     {\r\n        \"firstName\": \"Simple\",\r\n        \"lastName\": \"Freight\",\r\n        \"email\": \"freight@yahoo.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/staff/users/28d89098-c24a-41fa-9941-d9401818ba36",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users",
+								"28d89098-c24a-41fa-9941-d9401818ba36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user staff by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{authToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/staff/users/28d89098-c24a-41fa-9941-d9401818ba36",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"staff",
+								"users",
+								"28d89098-c24a-41fa-9941-d9401818ba36"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "TimeZone",
+					"item": [
+						{
+							"name": "Get Catalog Time Zones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/timezones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"timezones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Time Zones By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/timeZones/6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"timeZones",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Countries",
+					"item": [
+						{
+							"name": "Get all countries",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/countries",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get countries by alpha2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/countries/al",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"countries",
+										"al"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get country by id and cities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/countries/us/cities?city=bay",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"countries",
+										"us",
+										"cities"
+									],
+									"query": [
+										{
+											"key": "city",
+											"value": "bay"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Airlines",
+					"item": [
+						{
+							"name": "Get airlines",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/airlines?country=ab",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"airlines"
+									],
+									"query": [
+										{
+											"key": "iataCode",
+											"value": "M3",
+											"disabled": true
+										},
+										{
+											"key": "country",
+											"value": "ab"
+										},
+										{
+											"key": "name",
+											"value": "ABSA",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get airlines by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/airlines/12",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"airlines",
+										"12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ports",
+					"item": [
+						{
+							"name": "Get All catalog Ports",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/ports?unloc=BA",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"ports"
+									],
+									"query": [
+										{
+											"key": "city",
+											"value": "\"Hamriya Free Zone Port\"",
+											"disabled": true
+										},
+										{
+											"key": "unloc",
+											"value": "BA"
+										},
+										{
+											"key": "country",
+											"value": "U",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Ports by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/ports/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"ports",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Accessorials",
+					"item": [
+						{
+							"name": "Get accessorials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/catalog/accessorials",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"accessorials"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add accessorials",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accessorial\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/catalog/accessorials",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"catalog",
+										"accessorials"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All catalog Divisions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/catalog/divisions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalog",
+								"divisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Catalog Freight classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/catalog/freightClasses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalog",
+								"freightClasses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all Catalog service type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/catalog/servicetypes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalog",
+								"servicetypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all catalogAirport",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/catalog/airports?name=Hassan",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalog",
+								"airports"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Hassan"
+								},
+								{
+									"key": "iataCode",
+									"value": "UN",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "vC",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GEt all Catalog equipment type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/catalog/equipmentType",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalog",
+								"equipmentType"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestRoutes",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "saveLocation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"{{$randomCompanyName}}\",\r\n    \"companyAddress1\": \"Stone Creek Blvd\",\r\n    \"companyAddress2\" : \"Stone Creek\",\r\n    \"companyCity\": \"Cincinnati\",\r\n    \"companyProvince\": \"Ohio\",\r\n    \"companyPostalCode\": \"45251\",\r\n    \"companyCountry\": \"United States\",\r\n    \"isSFS\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllLocationInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/locations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleLocation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations/1c375d7b-a7ed-4cb6-a6c7-749a927b8678",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"1c375d7b-a7ed-4cb6-a6c7-749a927b8678"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleLocationByQuery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations?companyPostalCode=32451&companyCountry=CA",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "companyName",
+									"value": "Pathao",
+									"disabled": true
+								},
+								{
+									"key": "companyPostalCode",
+									"value": "32451"
+								},
+								{
+									"key": "companyCountry",
+									"value": "CA"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLocationInfo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"{{$randomCompanyName}}\",\r\n    \"companyAddress1\": \"Farnum\",\r\n    \"companyAddress2\" : \"Farnum\",\r\n    \"companyCity\": \"New York\",\r\n    \"companyProvince\": \"New York\",\r\n    \"companyPostalCode\": \"10024\",\r\n    \"companyCountry\": \"United States\",\r\n    \"isSFS\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/107167e9-241b-452a-8ea7-e403f259dd37",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"107167e9-241b-452a-8ea7-e403f259dd37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLocationInfo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/locations/8a732eea-a274-46d4-82b5-ba9a5c6e51a2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"8a732eea-a274-46d4-82b5-ba9a5c6e51a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "geMilageBetweenTwo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": {\r\n        \"lat\": 22.57059,\r\n        \"lng\": 88.37133\r\n    },\r\n    \"to\": {\r\n        \"lat\": 30.84323,\r\n        \"lng\": 75.41767\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/getMilage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"getMilage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccessorialsByLocation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/locations/071d1372-462e-47fa-a39d-bfee966abfa1/accessorials",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"071d1372-462e-47fa-a39d-bfee966abfa1",
+								"accessorials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveLocationProfile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hasDock\": 1,\r\n    \"hasForklift\": 0,\r\n    \"isAirport\": 1,\r\n    \"isCFS\": 0,\r\n    \"isResidence\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/f147e345-7138-4291-905a-911175d57c45/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"f147e345-7138-4291-905a-911175d57c45",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLocationProfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/locations/11ce891d-e110-4e57-a6ad-5e2f1b1462b3/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"11ce891d-e110-4e57-a6ad-5e2f1b1462b3",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveLocationShipping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requiresAppt\": 1,\r\n    \"hours\": [\r\n        {\r\n            \"One\": 1\r\n        }\r\n    ],\r\n    \"shippingDocks\": [\r\n        \"YES\", \"A\",42.65\r\n    ],\r\n    \"shippingInstructions\": \"Do this\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/f147e345-7138-4291-905a-911175d57c45/shipping",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"f147e345-7138-4291-905a-911175d57c45",
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLocationShipping",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/fc9d79e7-41c8-4499-8f01-6804f52777a2/shipping",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"fc9d79e7-41c8-4499-8f01-6804f52777a2",
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveLocationReceiving",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requiresAppt\": 1,\r\n    \"hours\": [\r\n        {\r\n            \"one\": 1,\r\n            \"two\": 2\r\n        }\r\n    ],\r\n    \"receivingDocks\": [\r\n        \"Yes\",\r\n        \"NO\"\r\n    ],\r\n    \"receivingInstructions\": \"Dont do this\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/f147e345-7138-4291-905a-911175d57c45/receiving",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"f147e345-7138-4291-905a-911175d57c45",
+								"receiving"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLocationReceiving",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/124f26c5-f883-4508-8869-5d4e9b9ad8e3/receiving",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"124f26c5-f883-4508-8869-5d4e9b9ad8e3",
+								"receiving"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLocationWeather",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/124f26c5-f883-4508-8869-5d4e9b9ad8e3/weather",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"124f26c5-f883-4508-8869-5d4e9b9ad8e3",
+								"weather"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendors",
+			"item": [
+				{
+					"name": "saveVendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"locationsId\": \"2bac75c1-80b4-4121-8644-5af2361e849d\",\r\n    \"isFactoringCompany\": 1,\r\n    \"requiresFactoringCompany\": {{$randomInt}},\r\n    \"website\" : \"www.mywebsite.com\",\r\n    \"idFactoringCompany\":\"bd28cb2f-9bdc-4fda-bfc3-e84a4821d232\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllVendors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleVendor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors/ff7774cb-9893-4762-b591-1d1260f7aa72",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"ff7774cb-9893-4762-b591-1d1260f7aa72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVendor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isFactoringCompany\": 1,\r\n    \"requiresFactoringCompany\": {{$randomInt}},\r\n    \"website\" : \"www.mywebsite.com\",\r\n    \"idFactoringCompany\":\"bd28cb2f-9bdc-4fda-bfc3-e84a4821d232\",\r\n    \"vendorSince\": \"2022-03-18T05:15:50\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/ff7774cb-9893-4762-b591-1d1260f7aa72",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"ff7774cb-9893-4762-b591-1d1260f7aa72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVendor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors/43c6443a-aca0-420c-90c4-f97316d65c30",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"43c6443a-aca0-420c-90c4-f97316d65c30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveVendorCoverage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"province\" : \"AR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/coverage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"coverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleVendorCoverage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/coverage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"coverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveVendorAccessorials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"accessorialsId\" : 1,\r\n   \"vendorsAccessorialCode\": \"{{$randomWord}}\",\r\n   \"labelledAs\": \"{{$randomWords}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/accessorials",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"accessorials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleVendorAccessorials Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/accessorials",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"accessorials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveVendorApi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"15241201454121\",\r\n    \"credentialsId\": \"009923b4-d918-43e8-a254-b554f73d39b9\",\r\n    \"tokenA\": \"\",\r\n    \"tokenB\": \"\",\r\n    \"apiUrl\": \"{{$randomUrl}}\",\r\n    \"label\": \"{{$randomWord}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/api",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleVendorApi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/api",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"api"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get all clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/clients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all clients by page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/clients?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"locationsId\":\"b325df0e-8d40-45a7-b94a-6a51cb3609d4\",\r\n    \"clientSince\":\"2022-03-12 10:14:40\",\r\n    \"paymentTerms\": 1212120,\r\n    \"credit\": 0,\r\n    \"creditLimit\":10.0,\r\n    \"paperworkRequired\": 0,\r\n    \"paperworkTypes\":{\"name\":\"jhon\",\"age\":12}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/clients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get client by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/clients/23e7d692-b589-4d83-a716-799ccb7e6e4e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients",
+								"23e7d692-b589-4d83-a716-799ccb7e6e4e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientSince\": \"2022-03-12 10:14:40\",\r\n    \"paymentTerms\": 1,\r\n    \"credit\": 32,\r\n    \"creditLimit\": 45.63,\r\n    \"entityId\": \"google\",\r\n    \"parentLocation\": \"0\",\r\n    \"salesperson\": \"0\",\r\n    \"identificationNumber\": \"120\",\r\n    \"division\": \"Dhaka\",\r\n    \"paperworkRequired\": 0,\r\n    \"paperworkTypes\": {\r\n        \"name\": \"jhon\",\r\n        \"age\": 12\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/clients/f7107c34-5d29-4138-8541-3287227b7bf2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients",
+								"f7107c34-5d29-4138-8541-3287227b7bf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete client by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/clients/11033057-4228-44ea-b494-8175823a0ba1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"clients",
+								"11033057-4228-44ea-b494-8175823a0ba1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "postNoteByContact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notes\" : \"{{$randomLoremWords}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts/caa9e872-e5cb-4dc4-a3be-93707dec45ba/notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"caa9e872-e5cb-4dc4-a3be-93707dec45ba",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateNoteByNoteId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notes\" : \"{{$randomLoremWords}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/notes/89",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"notes",
+								"89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteNotesByContactId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/:id/notes/:notesId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								":id",
+								"notes",
+								":notesId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4bd9246b-a32a-48b0-8f56-372aacc68ad7",
+									"description": "contactId"
+								},
+								{
+									"key": "notesId",
+									"value": "78",
+									"description": "noteId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postNoteByVendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notes\" : \"{{$randomLoremWords}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getNotesByVendor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/f1947285-7b88-440c-ac29-e6d588cd04d8/notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"f1947285-7b88-440c-ac29-e6d588cd04d8",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateNoteByNoteAndVendor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notes\" : \"Updated Note2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/vendors/:id/notes/:noteId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								":id",
+								"notes",
+								":noteId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f1947285-7b88-440c-ac29-e6d588cd04d8",
+									"description": "vendorId"
+								},
+								{
+									"key": "noteId",
+									"value": "7",
+									"description": "noteId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "add contacts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"{{$randomLastName}}\",\r\n    \"email\": \"  tdest10@test.com  \",\r\n    \"locations\": [\r\n        \"975c16b3-1f16-4e29-b30b-744057038aaf\"\r\n    ],\r\n    \"birthDate\": \"{{$randomDatePast}}\",\r\n    \"partnerAnniversary\": \"2022-03-12\",\r\n    \"hasPartner\": \"1\",\r\n    \"hasKids\": \"1\",\r\n    \"hasPets\": \"1\",\r\n    \"workAnniversary\": \"{{$randomDatePast}}\",\r\n    \"contactOwner\": \"2\",\r\n    \"department\": \"{{$randomDepartment}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contacts",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Tasmin\",\r\n    \"lastName\":\"Iqbal\",\r\n    \"email\":\"tsqbal@test.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts/caa9e872-e5cb-4dc4-a3be-93707dec45ba",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"caa9e872-e5cb-4dc4-a3be-93707dec45ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contacts",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/bd3fbf45-7de3-45c7-a5ba-889be0c97e9e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"bd3fbf45-7de3-45c7-a5ba-889be0c97e9e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All contacts by page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contacts By id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/caa9e872-e5cb-4dc4-a3be-93707dec45ba",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"caa9e872-e5cb-4dc4-a3be-93707dec45ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveLocationByContact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"locationsId\" : \"14f64f23-5025-4ea7-9dd1-b11fb1f0a0b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts/:id/locations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								":id",
+								"locations"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "099e4b3a-4e7f-4871-a9b2-de66ad0f669d",
+									"description": "contactId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLocationsByContactId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/:id/locations/:locationsId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								":id",
+								"locations",
+								":locationsId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "099e4b3a-4e7f-4871-a9b2-de66ad0f669d",
+									"description": "contactsId"
+								},
+								{
+									"key": "locationsId",
+									"value": "14f64f23-5025-4ea7-9dd1-b11fb1f0a0b1",
+									"description": "locationsId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ForwardAir",
+			"item": [
+				{
+					"name": "forwardApi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"Edison\",\r\n        \"province\": \"NJ\",\r\n        \"postalCode\": \"08817\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"Groveport\",\r\n        \"province\": \"OH\",\r\n        \"postalCode\": \"43125\",\r\n        \"country\": \"us\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": \"1\",\r\n            \"quantityType\": \"PT\",\r\n            \"totalWeight\": \"850\",\r\n            \"freightClass\": \"70\",\r\n            \"dimLength\": 40,\r\n            \"dimWidth\": 48,\r\n            \"dimHeight\": 60\r\n        }\r\n    ],\r\n    \"accessorials\": [\"AKHAZ\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/test-vendors/forwardair",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test-vendors",
+								"forwardair"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EstesApi",
+			"item": [
+				{
+					"name": "estesTest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"Edison\",\r\n        \"province\": \"NJ\",\r\n        \"postalCode\": \"08817\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"Groveport\",\r\n        \"province\": \"OH\",\r\n        \"postalCode\": \"43125\",\r\n        \"country\": \"us\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": \"1\",\r\n            \"quantityType\": \"PT\",\r\n            \"totalWeight\": \"850\",\r\n            \"freightClass\": \"70\",\r\n            \"dimLength\": 40,\r\n            \"dimWidth\": 48,\r\n            \"dimHeight\": 60\r\n        }\r\n    ],\r\n    \"accessorials\": [\"AKHAZ\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/test-vendors/estes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test-vendors",
+								"estes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "YRC Api",
+			"item": [
+				{
+					"name": "yrcVendorApi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"fletcher\",\r\n        \"province\": \"nc\",\r\n        \"postalCode\": \"28732\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"palmyra\",\r\n        \"province\": \"va\",\r\n        \"postalCode\": \"22963\",\r\n        \"country\": \"us\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": 2,\r\n            \"quantityType\": \"PLT\",\r\n            \"totalWeight\": 1400,\r\n            \"freightClass\": \"70\",\r\n            \"dimLength\": 48,\r\n            \"dimWidth\": 58,\r\n            \"dimHeight\": 87\r\n        }\r\n    ],\r\n    \"accessorials\": [\r\n        \"AKHAZ\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/test-vendors/yrc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test-vendors",
+								"yrc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserContactsCard",
+			"item": [
+				{
+					"name": "getContactCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/staff/97c5dbad-cca5-4459-89dd-2e8cdca90e35/contactCard",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"staff",
+								"97c5dbad-cca5-4459-89dd-2e8cdca90e35",
+								"contactCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateContactCard",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"{{$randomFullName}}\",\r\n    \"directPhone\": \"{{$randomPhoneNumber}}\",\r\n    \"mobilePhone\": \"{{$randomPhoneNumber}}\",\r\n    \"officePhone\": \"{{$randomPhoneNumber}}\",\r\n    \"email\": \"smith@slap.com\",\r\n    \"profilePhoto\": \"{{$randomImageUrl}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/staff/97c5dbad-cca5-4459-89dd-2e8cdca90e35/contactCard",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"staff",
+								"97c5dbad-cca5-4459-89dd-2e8cdca90e35",
+								"contactCard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fedex",
+			"item": [
+				{
+					"name": "API: FedEx",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"Missouri\",\r\n        \"province\": \"MO\",\r\n        \"postalCode\": \"65247\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"Houston\",\r\n        \"province\": \"TX\",\r\n        \"postalCode\": \"75063\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": 100,\r\n            \"quantityType\": \"KG\",\r\n            \"totalWeight\": 100,\r\n            \"freightClass\": \"50\",\r\n            \"dimLength\": 10,\r\n            \"dimWidth\": 8,\r\n            \"dimHeight\": 2,\r\n            \"unit\":\"IN\"\r\n        }\r\n    ],\r\n    \"accessorials\": [\"FDXE\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/test-vendors/fedex",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test-vendors",
+								"fedex"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "API: FedEx",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"Missouri\",\r\n        \"province\": \"MO\",\r\n        \"postalCode\": \"65247\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"Houston\",\r\n        \"province\": \"TX\",\r\n        \"postalCode\": \"75063\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": 100,\r\n            \"quantityType\": \"KG\",\r\n            \"totalWeight\": 100,\r\n            \"freightClass\": \"50\",\r\n            \"dimLength\": 10,\r\n            \"dimWidth\": 8,\r\n            \"dimHeight\": 2,\r\n            \"unit\":\"IN\"\r\n        }\r\n    ],\r\n    \"accessorials\": [\"FDXE\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/test-vendors/fedex",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"test-vendors",
+										"fedex"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32506"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7efa-2nqed2twYSeBQPXvvw/ALUjr+2E\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Apr 2022 13:01:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"transactionId\": \"3521e33d-5cda-43ec-9114-774f712889b9\",\n    \"output\": {\n        \"alerts\": [\n            {\n                \"code\": \"DESTINATION.POSTALCITY.MISMATCH\",\n                \"message\": \"The Destination Postal Code is not valid for the Destination City entered. Please verify the information and try again.\",\n                \"alertType\": \"WARNING\"\n            }\n        ],\n        \"rateReplyDetails\": [\n            {\n                \"serviceType\": \"PRIORITY_OVERNIGHT\",\n                \"serviceName\": \"FedEx Priority Overnight®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Sat\",\n                        \"dayFormat\": \"2022-04-02T12:00:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": true\n                },\n                \"customerMessages\": [\n                    {\n                        \"code\": \"SATURDAY.DELIVERY.AVAILABLE\",\n                        \"message\": \"Special handling required for Saturday Delivery.\"\n                    }\n                ],\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 205.08,\n                        \"totalNetCharge\": 250.96,\n                        \"totalNetFedExCharge\": 250.96,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 45.88,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"SATURDAY_DELIVERY\",\n                                    \"description\": \"Saturday Delivery\",\n                                    \"amount\": 16\n                                },\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 25.88\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1530\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 205.08,\n                                    \"netFreight\": 205.08,\n                                    \"totalSurcharges\": 45.88,\n                                    \"netFedExCharge\": 250.96,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 250.96,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"SATURDAY_DELIVERY\",\n                                            \"description\": \"Saturday Delivery\",\n                                            \"amount\": 16\n                                        },\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 25.88\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 205.08,\n                        \"totalNetCharge\": 250.96,\n                        \"totalNetFedExCharge\": 250.96,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 45.88,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"SATURDAY_DELIVERY\",\n                                    \"description\": \"Saturday Delivery\",\n                                    \"amount\": 16\n                                },\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 25.88\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1530\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 205.08,\n                                    \"netFreight\": 205.08,\n                                    \"totalSurcharges\": 45.88,\n                                    \"netFedExCharge\": 250.96,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 250.96,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"SATURDAY_DELIVERY\",\n                                            \"description\": \"Saturday Delivery\",\n                                            \"amount\": 16\n                                        },\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 25.88\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-02T12:00:00\",\n                    \"deliveryDay\": \"SAT\",\n                    \"commitDate\": \"2022-04-02T12:00:00\",\n                    \"commitDays\": [\n                        \"SAT\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"P1\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"01\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000002\",\n                    \"serviceType\": \"PRIORITY_OVERNIGHT\",\n                    \"code\": \"01\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Priority OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Priority Overnight\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Priority OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Priority Overnight\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"P-1\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"P-1\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"PO\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"Priority Overnight\",\n                    \"astraDescription\": \"P1\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"FIRST_OVERNIGHT\",\n                \"serviceName\": \"FedEx First Overnight®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Sat\",\n                        \"dayFormat\": \"2022-04-02T09:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": true\n                },\n                \"customerMessages\": [\n                    {\n                        \"code\": \"SATURDAY.DELIVERY.AVAILABLE\",\n                        \"message\": \"Special handling required for Saturday Delivery.\"\n                    }\n                ],\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 236.08,\n                        \"totalNetCharge\": 285.53,\n                        \"totalNetFedExCharge\": 285.53,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 49.45,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"SATURDAY_DELIVERY\",\n                                    \"description\": \"Saturday Delivery\",\n                                    \"amount\": 16\n                                },\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 29.45\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"10\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 236.08,\n                                    \"netFreight\": 236.08,\n                                    \"totalSurcharges\": 49.45,\n                                    \"netFedExCharge\": 285.53,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 285.53,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"SATURDAY_DELIVERY\",\n                                            \"description\": \"Saturday Delivery\",\n                                            \"amount\": 16\n                                        },\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 29.45\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 236.08,\n                        \"totalNetCharge\": 285.53,\n                        \"totalNetFedExCharge\": 285.53,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 49.45,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"SATURDAY_DELIVERY\",\n                                    \"description\": \"Saturday Delivery\",\n                                    \"amount\": 16\n                                },\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 29.45\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"10\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 236.08,\n                                    \"netFreight\": 236.08,\n                                    \"totalSurcharges\": 49.45,\n                                    \"netFedExCharge\": 285.53,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 285.53,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"SATURDAY_DELIVERY\",\n                                            \"description\": \"Saturday Delivery\",\n                                            \"amount\": 16\n                                        },\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 29.45\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-02T09:30:00\",\n                    \"deliveryDay\": \"SAT\",\n                    \"commitDate\": \"2022-04-02T09:30:00\",\n                    \"commitDays\": [\n                        \"SAT\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"1ST OVR\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"06\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000006\",\n                    \"serviceType\": \"FIRST_OVERNIGHT\",\n                    \"code\": \"06\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx First OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx First Overnight\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx First OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx First Overnight\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FO\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FO\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FO\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"First Overnight\",\n                    \"astraDescription\": \"1ST OVR\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"FIRST_OVERNIGHT\",\n                \"serviceName\": \"FedEx First Overnight®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Mon\",\n                        \"dayFormat\": \"2022-04-04T08:00:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 236.08,\n                        \"totalNetCharge\": 267.69,\n                        \"totalNetFedExCharge\": 267.69,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 31.61,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 27.61\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"10\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 236.08,\n                                    \"netFreight\": 236.08,\n                                    \"totalSurcharges\": 31.61,\n                                    \"netFedExCharge\": 267.69,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 267.69,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 27.61\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 236.08,\n                        \"totalNetCharge\": 267.69,\n                        \"totalNetFedExCharge\": 267.69,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 31.61,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 27.61\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"10\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 236.08,\n                                    \"netFreight\": 236.08,\n                                    \"totalSurcharges\": 31.61,\n                                    \"netFedExCharge\": 267.69,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 267.69,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 27.61\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-04T08:00:00\",\n                    \"deliveryDay\": \"MON\",\n                    \"commitDate\": \"2022-04-04T08:00:00\",\n                    \"commitDays\": [\n                        \"MON\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"1ST OVR\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"06\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000006\",\n                    \"serviceType\": \"FIRST_OVERNIGHT\",\n                    \"code\": \"06\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx First OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx First Overnight\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx First OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx First Overnight\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FO\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FO\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FO\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"First Overnight\",\n                    \"astraDescription\": \"1ST OVR\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"PRIORITY_OVERNIGHT\",\n                \"serviceName\": \"FedEx Priority Overnight®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Mon\",\n                        \"dayFormat\": \"2022-04-04T10:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 205.08,\n                        \"totalNetCharge\": 233.12,\n                        \"totalNetFedExCharge\": 233.12,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 28.04,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 24.04\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1530\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 205.08,\n                                    \"netFreight\": 205.08,\n                                    \"totalSurcharges\": 28.04,\n                                    \"netFedExCharge\": 233.12,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 233.12,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 24.04\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 205.08,\n                        \"totalNetCharge\": 233.12,\n                        \"totalNetFedExCharge\": 233.12,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 28.04,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 24.04\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1530\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 205.08,\n                                    \"netFreight\": 205.08,\n                                    \"totalSurcharges\": 28.04,\n                                    \"netFedExCharge\": 233.12,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 233.12,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 24.04\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-04T10:30:00\",\n                    \"deliveryDay\": \"MON\",\n                    \"commitDate\": \"2022-04-04T10:30:00\",\n                    \"commitDays\": [\n                        \"MON\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"P1\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"01\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000002\",\n                    \"serviceType\": \"PRIORITY_OVERNIGHT\",\n                    \"code\": \"01\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Priority OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Priority Overnight\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Priority OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Priority Overnight\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"P-1\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"P-1\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"PO\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"Priority Overnight\",\n                    \"astraDescription\": \"P1\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"STANDARD_OVERNIGHT\",\n                \"serviceName\": \"FedEx Standard Overnight®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Mon\",\n                        \"dayFormat\": \"2022-04-04T16:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 194.84,\n                        \"totalNetCharge\": 221.71,\n                        \"totalNetFedExCharge\": 221.71,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 26.87,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 22.87\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1327\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 194.84,\n                                    \"netFreight\": 194.84,\n                                    \"totalSurcharges\": 26.87,\n                                    \"netFedExCharge\": 221.71,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 221.71,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 22.87\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 194.84,\n                        \"totalNetCharge\": 221.71,\n                        \"totalNetFedExCharge\": 221.71,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 26.87,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 22.87\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"1327\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 194.84,\n                                    \"netFreight\": 194.84,\n                                    \"totalSurcharges\": 26.87,\n                                    \"netFedExCharge\": 221.71,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 221.71,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 22.87\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-04T16:30:00\",\n                    \"deliveryDay\": \"MON\",\n                    \"commitDate\": \"2022-04-04T16:30:00\",\n                    \"commitDays\": [\n                        \"MON\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"STD OVR\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"05\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000005\",\n                    \"serviceType\": \"STANDARD_OVERNIGHT\",\n                    \"code\": \"05\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Standard OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Standard Overnight\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Standard OvernightÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Standard Overnight\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"SOS\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"SOS\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"SO\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"Standard Overnight\",\n                    \"astraDescription\": \"STD OVR\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"FEDEX_2_DAY_AM\",\n                \"serviceName\": \"FedEx 2Day® AM\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Tue\",\n                        \"dayFormat\": \"2022-04-05T10:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 86.31,\n                        \"totalNetCharge\": 100.7,\n                        \"totalNetFedExCharge\": 100.7,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 14.39,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 10.39\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"8\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 86.31,\n                                    \"netFreight\": 86.31,\n                                    \"totalSurcharges\": 14.39,\n                                    \"netFedExCharge\": 100.7,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 100.7,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 10.39\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 86.31,\n                        \"totalNetCharge\": 100.7,\n                        \"totalNetFedExCharge\": 100.7,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 14.39,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 10.39\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"8\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 86.31,\n                                    \"netFreight\": 86.31,\n                                    \"totalSurcharges\": 14.39,\n                                    \"netFedExCharge\": 100.7,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 100.7,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 10.39\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-05T10:30:00\",\n                    \"deliveryDay\": \"TUE\",\n                    \"commitDate\": \"2022-04-05T10:30:00\",\n                    \"commitDays\": [\n                        \"TUE\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"2DAY AM\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"49\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000023\",\n                    \"serviceType\": \"FEDEX_2_DAY_AM\",\n                    \"code\": \"49\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx 2DayÂ® AM\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx 2Day AM\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx 2DayÂ® AM\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx 2Day AM\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"E2AM\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"E2AM\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"TA\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"2DAY AM\",\n                    \"astraDescription\": \"2DAY AM\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"FEDEX_2_DAY\",\n                \"serviceName\": \"FedEx 2Day®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Tue\",\n                        \"dayFormat\": \"2022-04-05T16:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 71.65,\n                        \"totalNetCharge\": 84.35,\n                        \"totalNetFedExCharge\": 84.35,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 12.7,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 8.7\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"6024\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 71.65,\n                                    \"netFreight\": 71.65,\n                                    \"totalSurcharges\": 12.7,\n                                    \"netFedExCharge\": 84.35,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 84.35,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 8.7\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 71.65,\n                        \"totalNetCharge\": 84.35,\n                        \"totalNetFedExCharge\": 84.35,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 12.7,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 8.7\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"6024\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 71.65,\n                                    \"netFreight\": 71.65,\n                                    \"totalSurcharges\": 12.7,\n                                    \"netFedExCharge\": 84.35,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 84.35,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 8.7\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-05T16:30:00\",\n                    \"deliveryDay\": \"TUE\",\n                    \"commitDate\": \"2022-04-05T16:30:00\",\n                    \"commitDays\": [\n                        \"TUE\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"E2\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"03\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000003\",\n                    \"serviceType\": \"FEDEX_2_DAY\",\n                    \"code\": \"03\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx 2DayÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx 2Day\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx 2DayÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx 2Day\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"P-2\"\n                        },\n                        {\n                            \"type\": \"short\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"P-2\"\n                        },\n                        {\n                            \"type\": \"abbrv\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"ES\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"2Day\",\n                    \"astraDescription\": \"E2\"\n                },\n                \"deliveryStation\": \"DALA \"\n            },\n            {\n                \"serviceType\": \"FEDEX_EXPRESS_SAVER\",\n                \"serviceName\": \"FedEx Express Saver®\",\n                \"packagingType\": \"YOUR_PACKAGING\",\n                \"commit\": {\n                    \"dateDetail\": {\n                        \"dayOfWeek\": \"Wed\",\n                        \"dayFormat\": \"2022-04-06T16:30:00\"\n                    },\n                    \"derivedOriginDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"MO\",\n                        \"postalCode\": \"65247\",\n                        \"serviceArea\": \"A9\",\n                        \"locationId\": \"COUZJ\",\n                        \"locationNumber\": 0\n                    },\n                    \"derivedDestinationDetail\": {\n                        \"countryCode\": \"US\",\n                        \"stateOrProvinceCode\": \"TX\",\n                        \"postalCode\": \"75063\",\n                        \"serviceArea\": \"A1\",\n                        \"locationId\": \"DALA \",\n                        \"locationNumber\": 0,\n                        \"airportId\": \"DFW\"\n                    },\n                    \"saturdayDelivery\": false\n                },\n                \"ratedShipmentDetails\": [\n                    {\n                        \"rateType\": \"ACCOUNT\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 65.43,\n                        \"totalNetCharge\": 77.41,\n                        \"totalNetFedExCharge\": 77.41,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 11.98,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 7.98\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"7171\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_ACCOUNT_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 65.43,\n                                    \"netFreight\": 65.43,\n                                    \"totalSurcharges\": 11.98,\n                                    \"netFedExCharge\": 77.41,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 77.41,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 7.98\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    },\n                    {\n                        \"rateType\": \"LIST\",\n                        \"ratedWeightMethod\": \"ACTUAL\",\n                        \"totalDiscounts\": 0,\n                        \"totalBaseCharge\": 65.43,\n                        \"totalNetCharge\": 77.41,\n                        \"totalNetFedExCharge\": 77.41,\n                        \"shipmentRateDetail\": {\n                            \"rateZone\": \"04\",\n                            \"dimDivisor\": 139,\n                            \"fuelSurchargePercent\": 11.5,\n                            \"totalSurcharges\": 11.98,\n                            \"totalFreightDiscount\": 0,\n                            \"surCharges\": [\n                                {\n                                    \"type\": \"FUEL\",\n                                    \"description\": \"Fuel Surcharge\",\n                                    \"amount\": 7.98\n                                },\n                                {\n                                    \"type\": \"ON_CALL_PICKUP\",\n                                    \"description\": \"FedEx pickup\",\n                                    \"amount\": 4\n                                }\n                            ],\n                            \"pricingCode\": \"PACKAGE\",\n                            \"totalBillingWeight\": {\n                                \"units\": \"LB\",\n                                \"value\": 22\n                            },\n                            \"currency\": \"USD\",\n                            \"rateScale\": \"7171\"\n                        },\n                        \"ratedPackages\": [\n                            {\n                                \"groupNumber\": 0,\n                                \"effectiveNetDiscount\": 0,\n                                \"packageRateDetail\": {\n                                    \"rateType\": \"PAYOR_LIST_PACKAGE\",\n                                    \"ratedWeightMethod\": \"ACTUAL\",\n                                    \"baseCharge\": 65.43,\n                                    \"netFreight\": 65.43,\n                                    \"totalSurcharges\": 11.98,\n                                    \"netFedExCharge\": 77.41,\n                                    \"totalTaxes\": 0,\n                                    \"netCharge\": 77.41,\n                                    \"totalRebates\": 0,\n                                    \"billingWeight\": {\n                                        \"units\": \"LB\",\n                                        \"value\": 22\n                                    },\n                                    \"totalFreightDiscounts\": 0,\n                                    \"surcharges\": [\n                                        {\n                                            \"type\": \"FUEL\",\n                                            \"description\": \"Fuel Surcharge\",\n                                            \"amount\": 7.98\n                                        },\n                                        {\n                                            \"type\": \"ON_CALL_PICKUP\",\n                                            \"description\": \"FedEx pickup\",\n                                            \"amount\": 4\n                                        }\n                                    ],\n                                    \"currency\": \"USD\"\n                                }\n                            }\n                        ],\n                        \"currency\": \"USD\"\n                    }\n                ],\n                \"operationalDetail\": {\n                    \"originLocationIds\": [\n                        \"COUZJ\"\n                    ],\n                    \"originLocationNumbers\": [\n                        0\n                    ],\n                    \"originServiceAreas\": [\n                        \"A9\"\n                    ],\n                    \"destinationLocationIds\": [\n                        \"DALA \"\n                    ],\n                    \"destinationLocationNumbers\": [\n                        0\n                    ],\n                    \"destinationServiceAreas\": [\n                        \"A1\"\n                    ],\n                    \"destinationLocationStateOrProvinceCodes\": [\n                        \"TX\"\n                    ],\n                    \"deliveryDate\": \"2022-04-06T16:30:00\",\n                    \"deliveryDay\": \"WED\",\n                    \"commitDate\": \"2022-04-06T16:30:00\",\n                    \"commitDays\": [\n                        \"WED\"\n                    ],\n                    \"ineligibleForMoneyBackGuarantee\": false,\n                    \"astraDescription\": \"XS\",\n                    \"originPostalCodes\": [\n                        \"65247\"\n                    ],\n                    \"stateOrProvinceCodes\": [\n                        \"MO\"\n                    ],\n                    \"countryCodes\": [\n                        \"US\"\n                    ],\n                    \"airportId\": \"DFW\",\n                    \"serviceCode\": \"20\",\n                    \"destinationPostalCode\": \"75063\"\n                },\n                \"signatureOptionType\": \"SERVICE_DEFAULT\",\n                \"serviceDescription\": {\n                    \"serviceId\": \"EP1000000013\",\n                    \"serviceType\": \"FEDEX_EXPRESS_SAVER\",\n                    \"code\": \"20\",\n                    \"names\": [\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Express SaverÂ®\"\n                        },\n                        {\n                            \"type\": \"long\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Express Saver\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"utf-8\",\n                            \"value\": \"FedEx Express SaverÂ®\"\n                        },\n                        {\n                            \"type\": \"medium\",\n                            \"encoding\": \"ascii\",\n                            \"value\": \"FedEx Express Saver\"\n                        }\n                    ],\n                    \"serviceCategory\": \"parcel\",\n                    \"description\": \"Express Saver\",\n                    \"astraDescription\": \"XS\"\n                },\n                \"deliveryStation\": \"DALA \"\n            }\n        ],\n        \"quoteDate\": \"2022-04-01\",\n        \"encoded\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "FedEx api  test",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJDWFMiLCJTRUNVUkUiXSwiUGF5bG9hZCI6ImFLcEpEZEJ1MXN4WmY3bEpFOUxxd2g3OEFCZ3FCSzcxa2hvdkRnWHpWWUlpMEpHTnpndjRaeWtuSWZHVUdvcUpiMzRlMjBScXdOVU14NmM2K0c5K3lWTG5hRDR0UmpzN0QrZmxoeXc4M3U5SnpXSVAwQlF4UlFsN0FCMjJOdUNwZHVnNTNuV0d0RzVFQTltR3lET2NCcityeSswMkpUd0c4R3RDS1BYa05uREdoNjdsK3hwbzl1NjNESWJXL1oxbU5nbzRJRVlVb0VZU0xhOXJtckVMc2pVeHY5Y0hzMEIzdnV3cUlRbXFiSlBSVVAyaWljS1JyY3RYTHczOWZqdFZXTHVud1FHZ0xtYk5YMWVyb21oSVEvaHJRQzZMWTJwTHd0bGFaRkdRVzNFPSIsImV4cCI6MTY0ODc0NjEzMiwianRpIjoiNDc0YmEyYmQtYThhNi00MzBjLTk1ZDEtOTcwZDhjMDJmNjIyIiwiY2xpZW50X2lkIjoibDc3MDZkZDk1MjRkYjI0ZWI1YjhhMWZhOTA1NTJjYWI0YSJ9.KoPG1JsTavmKney01MOtbA8cNCh_uAu6MVz_nQ_Vi_CAiGkl0YmTty-5CQB5D1BOfdLbrh4rSfj8QwVMaV_HuWcVpAQIO2iZcQj3p-5KTzpbu1qYYB3SPt79Pyt4ZoAMGoKBlY0SL_tjM6F7CYG8IXasOs_2cBXaMN2HkjSIczbKaPsHFea4SyUaN_GskSZgfMewP-JMTX0HtRNHJYsb4ymG82UtN8sXZ8Km78rzBaitsTiihwlYATcSilorMhYK8a3yRD2ai7S5lga3lWn6fMSDHJhDR8QOdqR7-jpObVNepQ8FscEMZKfJm2oZulMs5jUdyLpLgvt2HhSon2a_9L-FfaI5Ii50ipUSetaCgJCi6B9NqObh7KoCUOpbRmwTsZCtGL7IhxvP7ghEIsatnGH2bPccJ3OJp0sfCqpFy4ne6D_4Iyvd13Xq357Q8GyNoIwTgMoAZBJRpVNYw92PmnaJcjwksG4kYMC2dh9Rb40UTqA2tZLp99JC9U6eBAAVUfqN6P8UhzBXxiPS5xEK1vGPc0US494jQ01lNOQJfibf3fvFasyMwwrzg9R5d2Z9z7bxsxyNZXQdttZwvygzD67qdx3ad3YCTx-8ymT-yJMuIXDI1lR8V6UG4i_qIq5CpDjezMEFNo2zSdU8jPjhI18am0lJ3U6_2M2cgaJH0RQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": {\r\n    \"value\": \"510087860\"\r\n  },\r\n  \"requestedShipment\": {\r\n    \"shipper\": {\r\n      \"address\": {\r\n        \"city\": \"Missouri\",\r\n        \"stateOrProvinceCode\": \"MO\",\r\n        \"postalCode\": \"65247\",\r\n        \"countryCode\": \"US\",\r\n        \"residential\": false\r\n      }\r\n    },\r\n    \"recipient\": {\r\n      \"address\": {\r\n        \"city\": \"Houston\",\r\n        \"stateOrProvinceCode\": \"TX\",\r\n        \"postalCode\": \"75063\",\r\n        \"countryCode\": \"US\",\r\n        \"residential\": false\r\n      }\r\n    },\r\n    \"rateRequestType\": [\r\n\"ACCOUNT\",\r\n\"LIST\"\r\n],\r\n    \"pickupType\": \"CONTACT_FEDEX_TO_SCHEDULE\",\r\n    \"requestedPackageLineItems\": [\r\n      {\r\n        \"weight\": {\r\n          \"units\": \"LB\",\r\n          \"value\": 22\r\n        },\r\n        \"dimensions\": {\r\n          \"length\": 10,\r\n          \"width\": 8,\r\n          \"height\": 2,\r\n          \"units\": \"IN\"\r\n        }\r\n      }\r\n    ]\r\n  },\r\n  \"totalWeight\": 87.5,\r\n  \"carrierCodes\": [\r\n    \"FDXE\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apis-sandbox.fedex.com/rate/v1/rates/quotes",
+							"protocol": "https",
+							"host": [
+								"apis-sandbox",
+								"fedex",
+								"com"
+							],
+							"path": [
+								"rate",
+								"v1",
+								"rates",
+								"quotes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ArcBest",
+			"item": [
+				{
+					"name": "ArcBestApi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": {\r\n        \"city\": \"DALLAS\",\r\n        \"province\": \"TX\",\r\n        \"postalCode\": \"75247\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"destination\": {\r\n        \"city\": \"TULSA\",\r\n        \"province\": \"OK\",\r\n        \"postalCode\": \"74104\",\r\n        \"country\": \"US\"\r\n    },\r\n    \"pieces\": [\r\n        {\r\n            \"quantity\": 10,\r\n            \"quantityType\": \"BAG\",\r\n            \"totalWeight\": 100,\r\n            \"freightClass\": \"50\",\r\n            \"dimLength\": 12,\r\n            \"dimWidth\": 12,\r\n            \"dimHeight\": 48\r\n        }\r\n    ],\r\n    \"accessorials\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/test-vendors/arcbest",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test-vendors",
+								"arcbest"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DayLight API",
+			"item": [
+				{
+					"name": "Get access Token",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_secret",
+									"value": "Sn7rkfmboEd2Xhkw",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "HzZuqG4K3CcPZxcsRx1VF9jXsT8Leje",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.dylt.com/oauth/client_credential/accesstoken?client_secret=fB9a9B9cA5qWafUo&grant_type=client_credentials&client_id=qfxPIwWH69a9B9c9TVAHSz0DuWAbtEoh",
+							"protocol": "https",
+							"host": [
+								"api",
+								"dylt",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"client_credential",
+								"accesstoken"
+							],
+							"query": [
+								{
+									"key": "client_secret",
+									"value": "fB9a9B9cA5qWafUo"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								},
+								{
+									"key": "client_id",
+									"value": "qfxPIwWH69a9B9c9TVAHSz0DuWAbtEoh"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USF_API",
+			"item": [
+				{
+					"name": "testRate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hollandregional.com/api/RateQuote/doRateQuote?accessKey=A//j7w2qxLL7ZJ1ErHhoB4g8wPvG0ovn&accountId=8030d2f9-5bd9-42bf-8989-16d8f016e8d2&originCity=DALLAS&originState=TX&originZipCode=75247&destCity=TULSA&destState=Ok&destZipCode=74104&direction=Shipper&chargeType=Collect&shipmentClass1=1&shipmentWeight1=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hollandregional",
+								"com"
+							],
+							"path": [
+								"api",
+								"RateQuote",
+								"doRateQuote"
+							],
+							"query": [
+								{
+									"key": "accessKey",
+									"value": "A//j7w2qxLL7ZJ1ErHhoB4g8wPvG0ovn"
+								},
+								{
+									"key": "accountId",
+									"value": "8030d2f9-5bd9-42bf-8989-16d8f016e8d2"
+								},
+								{
+									"key": "originCity",
+									"value": "DALLAS"
+								},
+								{
+									"key": "originState",
+									"value": "TX"
+								},
+								{
+									"key": "originZipCode",
+									"value": "75247"
+								},
+								{
+									"key": "destCity",
+									"value": "TULSA"
+								},
+								{
+									"key": "destState",
+									"value": "Ok"
+								},
+								{
+									"key": "destZipCode",
+									"value": "74104"
+								},
+								{
+									"key": "direction",
+									"value": "Shipper"
+								},
+								{
+									"key": "chargeType",
+									"value": "Collect"
+								},
+								{
+									"key": "shipmentClass1",
+									"value": "1"
+								},
+								{
+									"key": "shipmentWeight1",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accesskey",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({ ",
+					"    disabled: false,",
+					"    description:{",
+					"        content: \"Authorization Key Header\",",
+					"        type: \"text/plain\"",
+					"    },",
+					"    // Your header, effectively",
+					"    key: 'x-auth-token', ",
+					"    name: 'authToken', ",
+					"    // If you set a variable you can access it",
+					"    // HeaderTest here has value=\"ValueHeaderTest\"",
+					"    // value: pm.environment.get(\"authToken\")",
+					"    value: pm.variables.get(\"authToken\")",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": ""
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

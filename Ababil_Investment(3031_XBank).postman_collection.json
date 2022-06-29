@@ -1,0 +1,491 @@
+{
+	"info": {
+		"_postman_id": "c5bb9444-da8a-4de3-a5d3-a96e4917183e",
+		"name": "Ababil_Investment(3031_MTB)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14006435"
+	},
+	"item": [
+		{
+			"name": "Investment Account Query(Customer ID)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "F-Token",
+						"value": "{{F-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/customer/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sanction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "F-Token",
+						"value": "{{F-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\": 46,\r\n  \"calculationMethod\": \"REDUCING\",\r\n  \"customerId\": 2,\r\n  \"customerParticipationInPercent\": 0,\r\n  \"economicCode\": 1101,\r\n  \"gestationTenure\": 0,\r\n  \"installmentBase\": false,\r\n  \"limitAmount\": 500000,\r\n  \"loanCategory\": \"0301\",\r\n  \"paymentInterval\": 1,\r\n  \"paymentIntervalType\": \"WEEK\",\r\n  \"productGroupId\": 1,\r\n  \"profitRate\": 0,\r\n  \"revolving\": true,\r\n  \"sanctionDate\": \"2022-09-11\",\r\n  \"sanctionExpiryDate\": \"2024-12-31\",\r\n  \"referenceNumber\": \"44445555133331\",\r\n  \"requestId\": \"444455553133133\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.172:3031/ababil-collateral-sanction/api/sanction",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"172"
+					],
+					"port": "3031",
+					"path": [
+						"ababil-collateral-sanction",
+						"api",
+						"sanction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Financing Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer 908fbe0e-42c2-48b2-a33c-fd4c661aea26",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "F-Token",
+						"value": "3692f125-8b73-4eeb-ac87-d5e42a7adcae",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"autoSanction\": false,\r\n  \"branchId\": 46,\r\n  \"buyingAgent\": true,\r\n  \"currencyCode\": \"BDT\",\r\n  \"customerId\": 2,\r\n  \"sanctionReferenceNo\":\"API/SANC/2/1656237373597\",\r\n  \"economicCode\": \"1101\",\r\n  \"investmentAmount\": 100000,\r\n  \"productCode\": \"705\",\r\n  \"profitRate\": 6,\r\n  \"linkAccount\": \"9991020000028\",\r\n  \"relationshipOfficer\": null,\r\n  \"notes\": \"string\",\r\n  \"tenure\": 12,\r\n  \"tenureType\": \"MONTHS\",\r\n  \"lcBillCode\": \"11\",\r\n  \"lcBillNo\": \"1234\",\r\n  \"lcType\": \"IMPORT_FOREIGN\",\r\n  \"referenceNumber\": \"721121143334\",\r\n  \"requestId\": \"2111111111121\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Disbursement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer c3f6c2c0-d42a-4986-9026-a47c7f43a707",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "F-Token",
+						"value": "3692f125-8b73-4eeb-ac87-d5e42a7adcae",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"disbursementAmount\": 50000,\r\n  \"financingAccountNo\": \"9997050000213\",\r\n  \"supplierAccountNo\": \"9991020000028\",\r\n  \"initiatorBranch\": 8,\r\n  \"narration\": \"disbursement\",\r\n  \"referenceNumber\": \"12366666666612\",\r\n  \"requestId\": \"123666666666627223\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/disbursement",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"disbursement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Investment Account Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "F-Token",
+						"value": "{{F-Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/9997050000213",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"9997050000213"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Repayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer 3692f125-8b73-4eeb-ac87-d5e42a7adcae",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "F-Token",
+						"value": "3692f125-8b73-4eeb-ac87-d5e42a7adcae",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"casaAccountNo\": \"9991020000028\",\r\n  \"financingAccountNo\": \"9997050000213\",\r\n  \"initiatorBranch\": 46,\r\n  \"instrumentNumber\": \"MSD0000051\",\r\n  \"narration\": \"test\",\r\n  \"repaymentAmount\": 500000000,\r\n  \"referenceNumber\": \"12333333333332\",\r\n  \"requestId\": \"12333333333713\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/repayment",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"repayment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Investment account statement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "F-Token",
+						"value": "3692f125-8b73-4eeb-ac87-d5e42a7adcae",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"accountNumber\": \"9997050000213\",\r\n  \"descending\": true,\r\n  \"fromDate\": \"2000-06-01\",\r\n  \"pageNumber\": 0,\r\n  \"pageSize\": 5,\r\n  \"pageable\": true,\r\n  \"toDate\": \"2023-06-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/transactions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Investment Account Details Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "F-Token",
+						"value": "{{F-Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/9997050000213",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"9997050000213"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "F-Token",
+						"value": "{{F-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"accountNumber\": \"9997350000327\",\r\n\"initiatorBranch\": 46,\r\n\"instrumentDate\": \"2022-06-22\",\r\n\"instrumentNumber\": \"MSD2300003\",\r\n\"payableAccountNumber\": \"9991020000028\",\r\n\"referenceNumber\": \"22229999001021\",\r\n\"requestId\": \"22229999000012\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/ababil-investment/api/financing-accounts/accountClose",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"accountClose"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account without limit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"autoSanction\": true,\r\n  \"branchId\": 46,\r\n  \"buyingAgent\": false,\r\n  \"currencyCode\": \"BDT\",\r\n  \"customerId\": 2,\r\n  \"economicCode\": \"1101\",\r\n  \"investmentAmount\": 500000,\r\n  \"lcBillCode\": \"11\",\r\n  \"lcBillNo\": \"1234\",\r\n  \"lcType\": \"IMPORT_FOREIGN\",\r\n  \"linkAccount\": \"9991020000028\",\r\n  \"notes\": \"string\",\r\n  \"productCode\": \"705\",\r\n  \"profitRate\": 10,\r\n  \"referenceNumber\": \"111111114322222\",\r\n  \"relationshipOfficer\": \"\",\r\n  \"requestId\": \"111111114322222\",\r\n  \"sanctionReferenceNo\": \"\",\r\n  \"tenure\": 120,\r\n  \"tenureType\": \"DAYS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.172:35080/ababil-investment/api/financing-accounts/create-simple-account",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"172"
+					],
+					"port": "35080",
+					"path": [
+						"ababil-investment",
+						"api",
+						"financing-accounts",
+						"create-simple-account"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{UserName}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Content-Type",
+			"value": "application/json",
+			"type": "string"
+		},
+		{
+			"key": "UserName",
+			"value": "API",
+			"type": "string"
+		},
+		{
+			"key": "Password",
+			"value": "@",
+			"type": "string"
+		},
+		{
+			"key": "Client Id",
+			"value": "test-ng-client",
+			"type": "string"
+		},
+		{
+			"key": "Secret",
+			"value": "secret",
+			"type": "string"
+		},
+		{
+			"key": "URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
